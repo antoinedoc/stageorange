@@ -37,5 +37,10 @@ li {
   font-size: 16px;
   line-height: 2;
   letter-spacing: 1px;
+}
+a {
+  font-size: 64px;
+  line-height: 2;
+  letter-spacing: 1px;
 }    
 }
