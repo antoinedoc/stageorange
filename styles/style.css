@@ -1,27 +1,37 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Ma page de test CSS</title>
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-  rel="stylesheet" />
-</head>
-<body>
-    <div class="container">
-        <h1>Mozilla is cool</h1>
-        <img src="images/jinwoofeu.jpg">
-         <p>At Mozilla, we're a global community of&nbsp;:</p>
-<ul>
-  <li>Manger</li>
-  <li>Dormir</li>
-  <li>Recommencer</li>
-</ul>
-        <p>workin together to keep the Internet alive and accessible, so people wroldwide can be informed contributors and creators of the Web. We believe this act of human collaboration across an open platform is essential to individual growth and our collective future.</p>
-    </div>
-</body>
-</html>
+html {
+     background-color: #6a5dff;
+     body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #ff9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+h1 {
+  margin: 0;
+  padding: 20px 0;
+  color: #00539f;
+  text-shadow: 3px 3px 1px black;
+}
+  /* px signifie "pixels". La taille de police de base est maintenant de 10
+     pixels de haut */
+  font-size: 10px;
+  /* Remplacez EMPLACEMENT par la valeur de la propriété font-family obtenue
+     depuis Google Fonts */
+  font-family: "Roboto", sans-serif;
+  h1 {
+  font-size: 60px;
+  text-align: center;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+p,
+li {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+}
