@@ -28,10 +28,14 @@ img {
   margin: 0 auto;
   max-width: 100%;
 }
-p,
 li {
   font-size: 16px;
   line-height: 2;
   letter-spacing: 1px;
 }
+ p {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+}    
 }
