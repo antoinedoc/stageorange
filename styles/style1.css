@@ -17,15 +17,16 @@ h2 {
     margin: 0;
     padding: 20px 0;
     color: #00539f
-    text-shadow: 3px 3px 1px  black; 
+    text-shadow/ 3px 3px 1px  black; 
 
 }
-  font-size: 10px;
-  font-family: "Roboto", sans-serif;
   h1 {
-  font-size: 60px;
-  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  color: #00539f;
+  text-shadow: 3px 3px 1px black;
 }
+
   h2 {
     font-size: 30px;
     text-align: center;
@@ -52,5 +53,42 @@ a {
   line-height: 2;
   letter-spacing: 1px;
 } 
+
+
+#mon-bouton-3{
+/* Code css du bouton css mon-bouton-1 
+avec remplacement de : 
+padding : 5px (border-radius/2)px;  pour une font-size parent de 16px */
+  padding : 0.313em 0.625em;
+  display : inline-table;
+/* on veut que le bouton Css garde des bordures arrondies de 20px quoi qu'il arrive 
+20px = border-radius
+*/
+  min-height : 20px; 
+/* */
+  -moz-border-radius : 20px;
+  -webkit-border-radius : 20px;
+  border-radius : 20px;
+  
+  background-color : #007700;
+  background-image : -webkit-linear-gradient(top, #57a41c, #3f800a);
+  background-image : -moz-linear-gradient(top, #57a41c, #3f800a);
+  background-image : -ms-linear-gradient(top, #57a41c, #3f800a);
+  background-image : -o-linear-gradient(top, #57a41c, #3f800a);
+  background-image : linear-gradient(to bottom, #57a41c, #3f800a); 
 }
+ 
+input[type=number] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 8px;
 }
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
