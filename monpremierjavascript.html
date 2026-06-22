@@ -1,1 +1,29 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcul simple</title>
+</head>
+<body>
+
+  <input type="number" id="champ1" placeholder="Valeur 1">
+  <input type="number" id="champ2" placeholder="Valeur 2">
+  <button onclick="calculer()">Calculer</button>
+
+  <p>Résultat : <span id="resultat">0</span></p>
+
+  <script>
+    function calculer() {
+      const valeur1 = Number(document.getElementById("champ1").value);
+      const valeur2 = Number(document.getElementById("champ2").value);
+
+      const resultat = valeur1 + valeur2;
+
+      document.getElementById("resultat").textContent = resultat;
+    }
+  </script>
+
+</body>
+</html>
+
