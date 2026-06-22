@@ -29,13 +29,13 @@
              <iframe width="560" height="315" src="https://www.youtube.com/embed/1U_BOZnWbuQ?si=ivGKkJvBc05Ji54g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
  <p> Pour que vous puissiez vous aussi connaître votre classement et votre catégorie d'âge, voici deux questions: 
-    <br>Quel est votre nombre de points?</br>   <input type="number" id="champ1" placeholder="Valeur 1">
-                                                <button onclick="calculer()">Calculer</button>                                    
+    <br><b>Quel est votre nombre de points: </b>  <input type="number" id="champ1" placeholder="Ex:342">
+                                                                                  
                                                 
 
                 
-    Votre année de naissance :  <select name="Sélectionner votre année de naissance" id="champ2">
-    <option value="">Votre année de naissance</option>
+   <br><b> Votre année de naissance :</b>  <select name="Sélectionner votre année de naissance" id="champ2">
+    <option value="0" selected>Votre année de naissance</option>
     <option value="2026">2026</option>
     <option value="2025">2025</option>
     <option value="2024">2024</option>
@@ -95,44 +95,114 @@
     <option value="1970">1970</option>
     </select>
 
-<p>Votre catégorie d'âge est : <span id="categoriedage">0</span> , et votre classement est : <span id="classement">0</span></p>
 
 
-
-
-
+ <br><button id="mon-bouton-3" onclick="calculer()">Calculer</button>
+ <p>Votre catégorie d'âge est : <span id="categoriedage">0</span> , et votre classement est : <span id="classement">0</span></p> 
+ <br><br>
+ <img src="images/Vétéran.png" id="imageVeteran" alt="Vétéran" style="display: none; width: 1220px;">
+ <img src="images/senior.png" id="imageSenior" alt="Senior" style="display: none; width: 1220px;">
+ <img src="images/junior.png" id="imageJunior" alt="Junior" style="display: none; width: 1220px;">
+ <img src="images/cadet.png" id="imageCadet" alt="Cadet" style="display: none; width: 1220px;">
+ <img src="images/minime.png" id="imageMinime" alt="Minime" style="display: none; width: 1000px;">
+ <img src="images/benjamin.png" id="imageBenjamin" alt="Benjamin" style="display: none; width: 1220px;">
+ <img src="images/poussin.png" id="imagePoussin" alt="Poussin" style="display: none; width: 1000px;">
+ <img src="images/minibad.png" id="imageMinibad" alt="Minibad" style="display: none; width: 1000px;">
 
 </body>
  <script>
     function calculer() {
       const valeur1 = Number(document.getElementById("champ1").value);
       const valeur2 = Number(document.getElementById("champ2").value);
-    if (valeur1 <400) {classement = "NC";}
-    if (valeur1 >=400) {classement = "P12";}
-    if (valeur1 >=600) {classement = "P11";}
-    if (valeur1 >=800) {classement = "P10";}
-    if (valeur1 >=1000) {classement = "D9";}
-    if (valeur1 >=1200) {classement = "D8";}
-    if (valeur1 >=1400) {classement = "D7";}
-    if (valeur1 >=1600) {classement = "R6";}
-    if (valeur1 >=1800) {classement = "R5";}
-    if (valeur1 >=2000) {classement = "R4";}
-    if (valeur1 >=2200) {classement = "N3";}
-    if (valeur1 >=2400) {classement = "N2";}
-    if (valeur1 >=2600) {classement = "N1";}
-    if (valeur2 <=1991) { categoriedage = "Vétéran" }
-    if (valeur2 >=2008) {categoriedage = "Senior" }
-    if (valeur2 >=2010) {categoriedage = "Junior" }
-    if (valeur2 >=2012) {categoriedage = "Cadet"}
-    if (valeur2 >=2014) {categoriedage = "Minime"}
-    if (valeur2 >=2016) {categoriedage = "Benjamin"}
-    if (valeur2 >=2018) {categoriedage = "Poussin"}
-    if (valeur2 >=2020) {categoriedage = "Minibad"}
-    
-document.getElementById("classement").textContent = classement;
-document.getElementById("categoriedage").textContent = categoriedage; 
-}
-    
+
+      let classement = "NC";
+      let categoriedage = "";
+
+      if (valeur1 >= 400) classement = "P12";
+      if (valeur1 >= 600) classement = "P11";
+      if (valeur1 >= 800) classement = "P10";
+      if (valeur1 >= 1000) classement = "D9";
+      if (valeur1 >= 1200) classement = "D8";
+      if (valeur1 >= 1400) classement = "D7";
+      if (valeur1 >= 1600) classement = "R6";
+      if (valeur1 >= 1800) classement = "R5";
+      if (valeur1 >= 2000) classement = "R4";
+      if (valeur1 >= 2200) classement = "N3";
+      if (valeur1 >= 2400) classement = "N2";
+      if (valeur1 >= 2600) classement = "N1";
+
+      if (valeur2 === 0) {
+        categoriedage = "Veuillez sélectionner votre année de naissance";
+      } else if (valeur2 <= 1991) {
+        categoriedage = "Vétéran";
+      } else if (valeur2 <= 2009) {
+        categoriedage = "Senior";
+      } else if (valeur2 <= 2011) {
+        categoriedage = "Junior";
+      } else if (valeur2 <= 2013) {
+        categoriedage = "Cadet";
+      } else if (valeur2 <= 2015) {
+        categoriedage = "Minime";
+      } else if (valeur2 <= 2017) {
+        categoriedage = "Benjamin";
+      } else if (valeur2 <= 2019) {
+        categoriedage = "Poussin";
+      } else {
+        categoriedage = "Minibad";
+      }
+
+      const images = [
+        "imageVeteran",
+        "imageJunior",
+        "imageSenior",
+        "imageCadet",
+        "imageMinime",
+        "imageBenjamin",
+        "imagePoussin",
+        "imageMinibad"
+      ];
+
+      images.forEach((id) => {
+        const img = document.getElementById(id);
+        if (img) img.style.display = "none";
+      });
+
+      if (valeur2 !== 0 && valeur2 <= 1991) {
+        const img = document.getElementById("imageVeteran");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 1992 && valeur2 <= 2009) {
+        const img = document.getElementById("imageSenior");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 2010 && valeur2 <= 2011) {
+        const img = document.getElementById("imageJunior");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 2012 && valeur2 <= 2013) {
+        const img = document.getElementById("imageCadet");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 2014 && valeur2 <= 2015) {
+        const img = document.getElementById("imageMinime");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 2016 && valeur2 <= 2017) {
+        const img = document.getElementById("imageBenjamin");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 2018 && valeur2 <= 2019) {
+        const img = document.getElementById("imagePoussin");
+        if (img) img.style.display = "inline";
+      }
+      if (valeur2 >= 2020) {
+        const img = document.getElementById("imageMinibad");
+        if (img) img.style.display = "inline";
+      }
+
+      document.getElementById("classement").textContent = classement;
+      document.getElementById("categoriedage").textContent = categoriedage;
+    }
  </script></p>
 </html>
 
