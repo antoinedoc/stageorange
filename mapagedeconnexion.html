@@ -26,7 +26,7 @@
       <div>
         <label for="userPassword">Mot de passe (14 caractères)&nbsp;:</label>
         <br>
-        <input type="password" id="userPassword" name="password" minlength="4" maxlength="20" required />
+        <input type="password" id="userPassword" name="password" minlength="4" maxlength="14" required />
       </div>
 
       <div>
@@ -37,8 +37,8 @@
 
   <script>
  const PREDEFINED_USERNAME_mathieu = "mathieu";
-const PREDEFINED_PASSWORD_mathieu = "19812010*2";
- const PREDEFINED_USERNAME_antoine = "antoine";
+const PREDEFINED_PASSWORD_mathieu = "3333";
+const PREDEFINED_USERNAME_antoine = "antoine";
 const PREDEFINED_PASSWORD_antoine = "1111";
 const PREDEFINED_USERNAME_thomas = "thomas";
 const PREDEFINED_PASSWORD_thomas = "2222";
@@ -51,7 +51,7 @@ const users = [
 
 document.querySelector('.login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-   const enteredPassword = document.getElementById('userPassword').value;
+  const enteredPassword = document.getElementById('userPassword').value;
   const enteredusername = document.getElementById('username').value;
 
   const matchedUser = users.find(u =>
@@ -65,5 +65,6 @@ document.querySelector('.login-form').addEventListener('submit', function(event)
   }
 });
   </script>
+
 </body>
 </html>
