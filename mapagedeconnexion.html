@@ -36,17 +36,27 @@
   </div>
 
   <script>
- const PREDEFINED_USERNAME_mathieu = "mathieu";
+const PREDEFINED_USERNAME_alice = "alice";
+const PREDEFINED_PASSWORD_alice = "4444";
+const PREDEFINED_USERNAME_mathieu = "mathieu";
 const PREDEFINED_PASSWORD_mathieu = "3333";
 const PREDEFINED_USERNAME_antoine = "antoine";
 const PREDEFINED_PASSWORD_antoine = "1111";
 const PREDEFINED_USERNAME_thomas = "thomas";
 const PREDEFINED_PASSWORD_thomas = "2222";
+const PREDEFINED_USERNAME_myriam = "myriam";
+const PREDEFINED_PASSWORD_myriam = "5555";
+const PREDEFINED_USERNAME_marie = "marie";
+const PREDEFINED_PASSWORD_marie = "6666";
 
 const users = [
   { username: PREDEFINED_USERNAME_mathieu, password: PREDEFINED_PASSWORD_mathieu, prenom: 'Mathieu' },
   { username: PREDEFINED_USERNAME_antoine, password: PREDEFINED_PASSWORD_antoine, prenom: 'Antoine' },
-  { username: PREDEFINED_USERNAME_thomas, password: PREDEFINED_PASSWORD_thomas, prenom: 'Thomas' }
+  { username: PREDEFINED_USERNAME_thomas, password: PREDEFINED_PASSWORD_thomas, prenom: 'Thomas' },
+ { username: PREDEFINED_USERNAME_alice, password: PREDEFINED_PASSWORD_alice, prenom: 'Alice' },
+ { username: PREDEFINED_USERNAME_margaux, password: PREDEFINED_PASSWORD_margaux, prenom: 'Margaux' },
+  { username: PREDEFINED_USERNAME_myriam, password: PREDEFINED_PASSWORD_myriam, prenom: 'Myriam' },
+  { username: PREDEFINED_USERNAME_marie, password: PREDEFINED_PASSWORD_marie, prenom: 'Marie' },
 ];
 
 document.querySelector('.login-form').addEventListener('submit', function(event) {
