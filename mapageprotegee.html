@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Page protégée</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/style3.css" />
 </head>
 <body>
   <div class="protected-page">
@@ -28,6 +28,163 @@
     
     <p><a href="mapagedeconnexion.html">Retour à la page de connexion</a></p>
   </div>
+   <div class="controls">
+      <label class="small">Recherche:
+         <input id="textFilter" placeholder="Nom..." />
+      </label>
+      <div class="buttons">
+         <button id="resetBtn">Réinitialiser</button>
+         <button id="sortClassementBtn">Trier par classement FR ↓</button>
+      </div>
+   </div>
 
+   <table id="playersTable" class="tableau-style" border="7">
+
+    <thead>
+         <tr>
+            <th data-type="string">Nom <span class="arrow"></span></th>
+            <th data-sortable="false">Catégorie</th>
+            <th data-type="number">Classement FR <span class="arrow"></span></th>
+         </tr>
+    </thead>
+
+    <tbody>
+      
+        <tr>
+
+           <td>Christo Popov</td>
+           <td>Sénior</td>
+           <td>1er FR</td>
+        </tr>
+        <tr>
+
+           <td>Alex Lanier</td>
+           <td>Sénior</td>
+           <td>2ème FR</td>
+        </tr>
+        <tr>
+
+           <td>Toma Jr Popov</td>
+           <td>sénior</td>
+           <td>3ème FR</td>
+        </tr>
+        <tr>
+
+           <td>Arnaud Merkle</td>
+           <td>Sénior</td>
+           <td>4ème FR</td>
+        </tr>
+        <tr>
+
+           <td>Enogat Roy</td>
+           <td>Sénior</td>
+           <td>5ème FR</td>
+        </tr>
+        <tr>
+
+           <td>Sacha Leveque</td>
+           <td>Sénior</td>
+           <td>6ème Fr</td>
+        </tr>
+        <tr>
+
+           <td>Arthur Wakhevitsch</td>
+           <td>Sénior</td>
+           <td>7ème FR</td>
+        </tr>
+        <tr>
+
+           <td>Amaury Lievre</td>
+           <td>Sénior</td>
+           <td>8ème FR</td>
+        </tr>
+        <tr>
+
+           <td>Valentin Singer</td>
+           <td>Sénior</td>
+           <td>9ème Fr</td>
+        </tr>
+        <tr>
+           
+           <td>Driss Bourroum</td>
+           <td>Sénior</td>
+           <td>10ème FR</td>
+        </tr>
+     
+      </tbody>
+    </table>
+  
+   <script>
+   (function(){
+      const table = document.getElementById('playersTable');
+      const tbody = table.tBodies[0];
+      const headers = table.tHead.querySelectorAll('th');
+      const textFilter = document.getElementById('textFilter');
+      const resetBtn = document.getElementById('resetBtn');
+      const sortClassementBtn = document.getElementById('sortClassementBtn');
+
+      function extractNumber(text){
+         const m = text.replace('\u00A0',' ').match(/(\d+)/);
+         return m ? parseInt(m[1],10) : Infinity;
+      }
+
+      function applyFilters(){
+         const txt = textFilter.value.trim().toLowerCase();
+         Array.from(tbody.rows).forEach(row => {
+            const name = row.cells[0].textContent.toLowerCase();
+            const match = (txt === '' || name.includes(txt));
+            row.classList.toggle('hidden', !match);
+         });
+      }
+
+      function sortTable(colIndex, type, asc){
+         const rows = Array.from(tbody.rows).filter(r => !r.classList.contains('hidden'));
+         const compare = (a,b) => {
+            let va = a.cells[colIndex].textContent.trim();
+            let vb = b.cells[colIndex].textContent.trim();
+            if(type === 'number'){
+               va = extractNumber(va);
+               vb = extractNumber(vb);
+               return va - vb;
+            } else {
+               return va.localeCompare(vb, 'fr', {sensitivity:'base'});
+            }
+         };
+         rows.sort((a,b) => asc ? compare(a,b) : -compare(a,b));
+         const hiddenRows = Array.from(tbody.rows).filter(r => r.classList.contains('hidden'));
+         tbody.innerHTML = '';
+         rows.concat(hiddenRows).forEach(r => tbody.appendChild(r));
+      }
+
+      headers.forEach((th, idx) => {
+         // n'attache l'événement que si la colonne est triable
+         if (th.dataset.sortable === 'false') return;
+         th.dataset.asc = 'true';
+         th.addEventListener('click', () => {
+            const asc = th.dataset.asc === 'true';
+            const type = th.dataset.type || 'string';
+            headers.forEach(h => { if(h.querySelector('.arrow')) h.querySelector('.arrow').textContent = ''; });
+            const arrow = th.querySelector('.arrow'); if(arrow) arrow.textContent = asc ? '↑' : '↓';
+            sortTable(idx, type, asc);
+            th.dataset.asc = asc ? 'false' : 'true';
+         });
+      });
+
+      let classementAsc = false;
+      sortClassementBtn.addEventListener('click', () => {
+         classementAsc = !classementAsc;
+         sortClassementBtn.textContent = 'Trier par classement FR ' + (classementAsc ? '↑' : '↓');
+         sortTable(2, 'number', classementAsc);
+      });
+
+      textFilter.addEventListener('input', applyFilters);
+      resetBtn.addEventListener('click', () => {
+         textFilter.value = '';
+         Array.from(tbody.rows).forEach(r => r.classList.remove('hidden'));
+         headers.forEach(h => h.querySelector('.arrow').textContent = '');
+      });
+    
+   })();
+   </script>
 </body>
 </html>
