@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Badminton</title>
+    <link rel="stylesheet" href="styles/style5.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Quiz sur le Badminton</h1>
+
+        <!-- Formulaire -->
+        <div class="inscription">
+            <h2>Inscription</h2>
+
+            <label>Nom :</label>
+            <input type="text" id="nom">
+
+            <label>Prénom :</label>
+            <input type="text" id="prenom">
+
+            <label>Âge :</label>
+            <input type="number" id="age">
+
+            <button id="commencer">Commencer le quiz</button>
+        </div>
+
+        <!-- Quiz -->
+        <div id="quiz">
+
+            <div class="question">
+                <p>1. Quelle est la largeur officielle d'un terrain de badminton en simple ?</p>
+                <label><input type="radio" name="q1" value="1"> 5,18 m</label>
+                <label><input type="radio" name="q1" value="0"> 6,10 m</label>
+                <label><input type="radio" name="q1" value="0"> 4,50 m</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Avec quelle partie de la raquette frappe-t-on le volant ?</p>
+                <label><input type="radio" name="q2" value="0"> Le manche</label>
+                <label><input type="radio" name="q2" value="1"> Le tamis</label>
+                <label><input type="radio" name="q2" value="0"> Le cadre</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Le service doit être frappé :</p>
+                <label><input type="radio" name="q3" value="0"> Au-dessus de la tête</label>
+                <label><input type="radio" name="q3" value="1"> Sous la ceinture</label>
+                <label><input type="radio" name="q3" value="0"> N'importe comment</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Si le volant touche la ligne extérieure, il est :</p>
+                <label><input type="radio" name="q4" value="1"> Bon</label>
+                <label><input type="radio" name="q4" value="0"> Faute</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Combien de sets gagnants faut-il pour remporter un match ?</p>
+                <label><input type="radio" name="q5" value="0"> 1</label>
+                <label><input type="radio" name="q5" value="1"> 2</label>
+                <label><input type="radio" name="q5" value="0"> 3</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>6. Quel pays est une grande puissance du badminton ?</p>
+                <label><input type="radio" name="q6" value="0"> France</label>
+                <label><input type="radio" name="q6" value="1"> Chine</label>
+                <label><input type="radio" name="q6" value="0"> Brésil</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>7. Quel coup est frappé très fort vers le bas ?</p>
+                <label><input type="radio" name="q7" value="0"> Amorti</label>
+                <label><input type="radio" name="q7" value="1"> Smash</label>
+                <label><input type="radio" name="q7" value="0"> Service</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>8. Le badminton est devenu sport olympique en :</p>
+                <label><input type="radio" name="q8" value="0"> 1988</label>
+                <label><input type="radio" name="q8" value="1"> 1992</label>
+                <label><input type="radio" name="q8" value="0"> 1996</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>9. Le record de vitesse d'un volant dépasse :</p>
+                <label><input type="radio" name="q9" value="0"> 200 km/h</label>
+                <label><input type="radio" name="q9" value="0"> 300 km/h</label>
+                <label><input type="radio" name="q9" value="1"> 400 km/h</label>
+                <div class="correction"></div>
+            </div>
+
+            <div class="question">
+                <p>10. Quels matériaux composent les volants ?</p>
+                <label><input type="checkbox" class="q10" value="plume"> Plumes</label>
+                <label><input type="checkbox" class="q10" value="nylon"> Nylon</label>
+                <label><input type="checkbox" class="q10" value="bois"> Bois</label>
+                <div class="correction"></div>
+            </div>
+
+            <button class="btn-resultat">Valider mes réponses</button>
+
+        </div>
+
+        <div id="resultat"></div>
+
+    </div>
+
+    <script src="script/script.js"></script>
+ 
+    <br><br><a href="menu.html">cliquez ici pour retourner au menu</a>
+</body>
+</html>

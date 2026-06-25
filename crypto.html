@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"> 
+    <meta http-equiv="Pragma" content="no-cache"> <meta http-equiv="Expires" content="0"> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Page encodeur</title>
+    <link rel="stylesheet" href="styles/style7.css" />
+</head>
+<body>
+    <div class="box">
+    <h2>Encodeur HTML</h2>
+    <input type="text" id="texte" placeholder="Entrez du texte">
+    <button onclick="encoder()">Encoder</button>
+    <br><br><textarea id="resultatEncode" rows="1" placeholder="Résultat"></textarea>
+  </div>
+
+
+<script>
+function encoder() {
+    try {
+        let texte = document.getElementById("texte").value;
+        let resultat = btoa(unescape(encodeURIComponent(texte)));
+        document.getElementById("resultatEncode").value = resultat;
+    } catch (e) {
+        document.getElementById("resultatEncode").value = "Erreur d'encodage";
+    }
+}
+
+function deco() {
+    try {
+        let message = document.getElementById("message").value;
+        let resultat = decodeURIComponent(escape(atob(message)));
+        document.getElementById("resultatDecode").value = resultat;
+    } catch (e) {
+        document.getElementById("resultatDecode").value = "Erreur de décodage";
+    }
+}
+</script>
+    <div class="box">
+        <h2>Décodeur HTML</h2>
+        <input type="text" id="message" placeholder="Entrez le message encodé">
+        <button onclick="deco()">Décoder</button>
+        <br><br><textarea id="resultatDecode" rows="1" placeholder="Résultat du décodage"></textarea>
+    </div>
+    <br><br><a href="menu.html">cliquez ici pour retourner au menu</a>
+</body>
+</html>
